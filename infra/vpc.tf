@@ -14,7 +14,7 @@ resource "aws_internet_gateway" "tetra_gw" {}
 
 # Configure Subnets
 resource "aws_subnet" "tetra_subnet_one" {
-  vpc_id     = aws_vps.tetra_VPC.id
+  vpc_id     = aws_vpc.tetra_VPC.id
   cidr_block = "10.0.1.0/24"
 
   tags = {
@@ -22,8 +22,8 @@ resource "aws_subnet" "tetra_subnet_one" {
   }
 }
 
-resource "aws_subnet" "tetra_subnet_twp" {
-  vpc_id     = aws_vpc.main.id
+resource "aws_subnet" "tetra_subnet_two" {
+  vpc_id     = aws_vpc.tetra_VPC.id
   cidr_block = "10.0.2.0/24"
 
   tags = {
@@ -32,7 +32,7 @@ resource "aws_subnet" "tetra_subnet_twp" {
 }
 
 resource "aws_subnet" "tetra_subnet_three" {
-  vpc_id     = aws_vpc.main.id
+  vpc_id     = aws_vpc.tetra_VPC.id
   cidr_block = "10.0.3.0/24"
 
   tags = {
@@ -41,7 +41,7 @@ resource "aws_subnet" "tetra_subnet_three" {
 }
 
 resource "aws_subnet" "tetra_subnet_four" {
-  vpc_id     = aws_vpc.main.id
+  vpc_id     = aws_vpc.tetra_VPC.id
   cidr_block = "10.0.4.0/24"
 
   tags = {
@@ -49,4 +49,22 @@ resource "aws_subnet" "tetra_subnet_four" {
   }
 }
 
+resource "aws_route_table" "tetra_rt_one" {
+  vpc_id = aws_vpc.tetra_VPC.id
 
+  route = []
+
+  tags = {
+    Name = "tetra_rt_one"
+  }
+}
+
+resource "aws_route_table" "tetra_rt_two" {
+  vpc_id = aws_vpc.tetra_VPC.id
+
+  route = []
+
+  tags = {
+    Name = "tetra_rt_two"
+  }
+}
