@@ -1,7 +1,6 @@
-## Welcome to my project.
-Hopefully I complete it...
+## Welcome to 1,2,3.
 
-But if I don't, I was probably just bored..
+Clear eyes, full heart, cant lose.
 
 Enjoy!
 
